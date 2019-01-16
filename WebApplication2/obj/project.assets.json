@@ -11800,11 +11800,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\users\\cfp-8404\\source\\repos\\WebApplication2\\WebApplication2\\WebApplication2.csproj",
+      "projectUniqueName": "C:\\Users\\CFP-8404\\Documents\\BasicAPI\\WebApplication2\\WebApplication2.csproj",
       "projectName": "WebApplication2",
-      "projectPath": "c:\\users\\cfp-8404\\source\\repos\\WebApplication2\\WebApplication2\\WebApplication2.csproj",
+      "projectPath": "C:\\Users\\CFP-8404\\Documents\\BasicAPI\\WebApplication2\\WebApplication2.csproj",
       "packagesPath": "C:\\Users\\CFP-8404\\.nuget\\packages\\",
-      "outputPath": "c:\\users\\cfp-8404\\source\\repos\\WebApplication2\\WebApplication2\\obj\\",
+      "outputPath": "C:\\Users\\CFP-8404\\Documents\\BasicAPI\\WebApplication2\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

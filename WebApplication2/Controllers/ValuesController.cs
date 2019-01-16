@@ -46,14 +46,29 @@ namespace WebApplication2.Controllers
     }
     public class dbConnect
     {
-        private string databaseName = string.Empty;
-        private MySqlConnection connection;
-        public string DatabaseName
-        {
-            get{ return databaseName; }
-            set { this.databaseName = value; }
-        }
+        private MySqlConnection connection = new MySqlConnection();
+        public string databaseName { get; set; }
+        private string password { get; set; }
+        public string host { get; set; }
+        private string user { get; set; }
+       
+        public dbConnect (string database, string password, string host, string user) => (databaseName, password, host, user) = (database, password, host, user);
 
-        public string Password { get; set; }
+        public Boolean connect()
+        {
+            Boolean result = false;
+            try
+            {
+                connection.ConnectionString = $"server = {host}; database = {databaseName}; uid = {user}; pwd = {password}";
+                connection.Open();
+                result = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+            return result;
+        }
     }
 }
