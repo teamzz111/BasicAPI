@@ -16,7 +16,18 @@ namespace WebApplication2.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            string[] array = new string[1];
+            dbConnect t = new dbConnect("mydb", "nicky246", "localhost", "root");
+            if(!t.connect())
+            {
+                array[0] = "Conexión exitosa";
+            }
+            else
+            {
+                array[0] = "Conexión fallida";
+            }
+
+            return array;
         }
 
         // GET api/values/5
@@ -46,7 +57,7 @@ namespace WebApplication2.Controllers
     }
     public class dbConnect
     {
-        private MySqlConnection connection = new MySqlConnection();
+
         public string databaseName { get; set; }
         private string password { get; set; }
         public string host { get; set; }
@@ -56,19 +67,20 @@ namespace WebApplication2.Controllers
 
         public Boolean connect()
         {
-            Boolean result = false;
+            Boolean error = false;
             try
             {
-                connection.ConnectionString = $"server = {host}; database = {databaseName}; uid = {user}; pwd = {password}";
-                connection.Open();
-                result = true;
+                string conn = "SERVER=localhost; DATABASE=mydb; UID=root; password=nicky246;";
+                MySqlConnection conDb = new MySqlConnection(conn);
+                conDb.Open();
+
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                error = true;
             }
 
-            return result;
+            return error;
         }
     }
 }
